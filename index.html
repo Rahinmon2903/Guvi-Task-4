@@ -66,6 +66,14 @@
               placeholder="Enter Amount"
             />
           </div>
+          <div class="form-control">
+            <label for="type">Type</label>
+            <select id="type" name="type" class="type">
+              <option value="income" selected>Income</option>
+              <option value="expense">Expense</option>
+            </select>
+          </div>
+
           <button type="submit" id="addBtn">Add Transaction</button>
           <button type="reset" id="addBtn1">Clear</button>
         </form>
@@ -74,11 +82,17 @@
       <!-- Right Section -->
       <div class="box2">
         <h1>TRANSACTION DETAILS</h1>
-          <div class="filters">
-        <label><input type="radio" name="filter" value="all" checked> All</label>
-        <label><input type="radio" name="filter" value="income"> Income</label>
-        <label><input type="radio" name="filter" value="expense"> Expense</label>
-      </div>
+        <div class="filters">
+          <label
+            ><input type="radio" name="filter" value="all" checked /> All</label
+          >
+          <label
+            ><input type="radio" name="filter" value="income" /> Income</label
+          >
+          <label
+            ><input type="radio" name="filter" value="expense" /> Expense</label
+          >
+        </div>
         <ul id="transaction-list" class="trans">
           <!-- <li class="exp">Insurance <span>-1500</span><button class="bt-del">x</button></li>
         <li class="inc">Salary <span>35000</span><button class="bt-del">x</button></li>

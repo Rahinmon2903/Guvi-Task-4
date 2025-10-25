@@ -135,6 +135,33 @@ body {
   outline: none;
   transform: scale(1.02);
 }
+select.type {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: #fff;
+  color: #333;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+
+select.type:hover {
+  border-color: #666;
+}
+
+select.type:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+}
+
+
+select.type option {
+  padding: 8px;
+}
 
 
 
@@ -173,7 +200,7 @@ body {
   list-style: none;
   padding: 0;
   max-height: 350px;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 #transaction-list li {

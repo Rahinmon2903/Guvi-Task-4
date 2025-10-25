@@ -7,6 +7,7 @@ const des=document.querySelector('#desc');
 const amt=document.querySelector('#amount');
 const list=document.querySelector('#transaction-list');
 const filter=document.querySelectorAll('input[name="filter"]')
+const type=document.querySelector('#type');
 
 // Get data from localStorage
 const localstoragetrans=JSON.parse(localStorage.getItem("tra"));
@@ -44,7 +45,8 @@ function edit(id) {
   const trans = transaction.find(t => t.id === id);
   if (trans) {
     des.value = trans.description;
-    amt.value = trans.amount;
+    amt.value = Math.abs(trans.amount);
+    type.value= trans.amount < 0 ? "expense" : "income" ;
     transaction = transaction.filter(t => t.id !== id);
     updatelocalstorage();
     applyFilter();
@@ -80,15 +82,22 @@ function addtransaction(e){
       alert("Please enter both description and amount");
       return;
     } else {
+      let selected=type.value;
+     
+      let rawamount=+amt.value;
+      let FinalAmount= selected ==="expense" ? -Math.abs(rawamount) : Math.abs(rawamount);
+     
+      
         const transactions={
             id:Date.now(),
             description: des.value,
-            amount: +amt.value,
+            amount: FinalAmount,
         }
         transaction.push(transactions);
         loadtransaction(transactions);
         des.value="";
         amt.value="";
+        type.value = "income"; 
         updateamount();
         updatelocalstorage();
     }
